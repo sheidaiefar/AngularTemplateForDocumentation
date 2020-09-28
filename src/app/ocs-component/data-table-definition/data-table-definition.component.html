@@ -1,0 +1,133 @@
+<div class="col-10 justify-content-around m-5">
+      <h3> How to Use of OCS DataTable Component </h3>
+      <mat-tab-group class="mt-3">
+            <mat-tab label="Overview">
+                  <p>&nbsp;</p>
+                  <p>Tables display information in a way that’s easy to scan, so that users can look for patterns and
+                        insights. They can be embedded in primary content, such as cards. A data table contains a header
+                        row at the top that lists column names, followed by rows for data.</p>
+
+                  <p>The&nbsp;<code>ocs-data-table</code>&nbsp;package provides useful utilities for working with data
+                        sets;</p>
+                  <p>A Basic Data Table Component,whci can be created by ocs component looks like:</p>
+
+                  <div class="col-5">
+                        <ocs-data-table [dataProvider]="dataProvider" [showRowDetails]="false" [hoverable]="true">
+                              <column name="name" priority="1">
+                                    <ng-template header>{{'Name'}}</ng-template>
+                                    <ng-template content let-row>{{row.name}}</ng-template>
+                              </column>
+
+                              <column name="age" priority="1">
+                                    <ng-template header>{{'Age'}}</ng-template>
+                                    <ng-template content let-row>{{row.age}}</ng-template>
+                              </column>
+                        </ocs-data-table>
+                  </div>
+
+                  <p>In order to use an OcsDataTable component, you must perform the following steps:</p>
+                  <ol>
+
+                        <li>Import the specific OcsDataTable module "OcsDataTableModule " into your current module
+                              which has been imported from the "ocs-ui-core" ibrary. <br /><br /></li>
+                        <li>Insert its specific tag into the current template : <span style="color: #0f750fb9;"><span
+                                          style="color: #0f750fb9;"> &lt;ocs-data-table</span></span><span
+                                    style="color: #0f750fb9;">&gt;&lt;/ocs-data-table&gt;</span></li>
+
+                  </ol>
+
+                  <ol>
+                        This tag could have these attributes values:
+                  </ol>
+
+                  <ul style="list-style-type: circle;">
+                        <li>
+                              <p><span style="color: #0000ff;">  dataProvider: DataProviderFunc&lt;any&gt;;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  dataItemKey: string;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  size: DataGridControlSize;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  hoverable: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  pageable: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  pageSize: number;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  pageIndex: number;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  autoLoad: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  filterable: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  sortable: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  selectable: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  selectionMode: DataGridSelectionMode;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  showHeader: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">  rowCssClass: any;</span></p>
+                        </li>
+                        <li><span style="color: #0000ff;">selectedItems: Array&lt;any&gt;;<br /><br /></span></li>
+                        <li><span style="color: #0000ff;">selectedItemsChange:
+                                    EventEmitter&lt;any[]&gt;;<br /><br /></span></li>
+                        <li><span style="color: #0000ff;">pageSizeOptions: number[];<br /><br /></span></li>
+                        <li><span style="color: #0000ff;">showRowDetails: boolean;<br /><br /></span></li>
+                        <li><span style="color: #0000ff;">showRowNumbers: boolean;</span></li>
+                  </ul>
+                  <div>
+                        <p> </p>
+                  </div>
+
+
+            </mat-tab>
+            <mat-tab label="Example">
+                  <div>
+                        <p>In order to use of Data Table component at first, you must import "OcsDataTableModule" in the
+                              current module; for example, the module of your form.</p>
+                        <p> </p>
+                        <p>the following example shows a data-table which has two colomn of Name and Age from an array; 
+                        </p>
+                        <p> </p>
+                        <p>template must set attributes like:</p>
+                        <p><textarea cols="100" readonly="readonly"
+                                    rows="4"> &lt;ocs-autocomplete name="organizationsList" [dataProvider]="organizationsDataProvider" itemText="organizationTitle" itemValue="id" [label]="organization" [(ngModel)]="model.organizationId" [required]="true"&gt;&lt;/ocs-autocomplete&gt;</textarea>
+                        </p>
+                        <ul style="list-style-type: disc;">
+                              <li>itemText : refers to the field of organizationTitle to show for users.</li>
+                        </ul>
+                        <p> </p>
+                        <ul style="list-style-type: disc;">
+                              <li>itemValue : refers to the field of id in organization model</li>
+                        </ul>
+                        <p> </p>
+                        <ul style="list-style-type: disc;">
+                              <li>dataProvider: the type of this attribute is ( DataProviderFunc) which invokes server
+                                    for some observable dataSourceResults base on the data model.<br /> for example, in
+                                    this case, you can write a function in the component's class like below :
+                                    <br /><br /></li>
+                        </ul>
+                        <p><textarea cols="80" readonly="readonly"
+                                    rows="4">this.organizationsDataProvider = this.createOrganizationDataProvider(); createOrganizationDataProvider(): DataProviderFunc&lt;OrganizationModel[]&gt; { return (request: DataSourceRequest) =&gt; { return this.service.getOrganizations(request); }; }</textarea>
+                        </p>
+
+                  </div>
+            </mat-tab>
+      </mat-tab-group>
+
+</div>

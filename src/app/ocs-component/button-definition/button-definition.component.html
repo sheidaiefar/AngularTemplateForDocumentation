@@ -1,0 +1,82 @@
+<!-- https://wordhtml.com/  -->
+
+<div class="col-10 justify-content-around m-5" >
+      <h3> How to Use of OCS Button Component </h3>
+      <mat-tab-group class="mt-3" >
+            <mat-tab label="Overview" >
+                  <p></p>
+                  <p>A basic &nbsp;<code>ocs-button</code>&nbsp; component looks like:
+                        <ocs-button [text]="'Click Me!'" class="m-2" color="primary"></ocs-button>
+                  </p>
+
+                  <p>In order to use a button component, you must perform the following steps:</p>
+                  <ol style="list-style-type: upper-alpha;">
+                        <li><p> the specific button module "OcsButtonModule" into your current module which has
+                              been imported from the </p> <p class="font-weight-bold">"ocs-ui-core"</p> <p> library.</p>
+                              <br /><br /></li>
+                        <li>Insert its specific tag into the current template :
+                              &lt;ocs-button&gt;&lt;/ocs-button&gt;<br /><br /></li>
+                        <li>This tag could have these attributes values:</li>
+                  </ol>
+                  <ol>
+                        <ul>
+                              <li><span style="color: #0000ff;">type: 'button' | 'submit' | 'reset';</span></li>
+                              <li><span style="color: #0000ff;">size: 'small' | 'normal' | 'large';</span></li>
+                              <li><span style="color: #0000ff;">disabled: boolean;</span></li>
+                              <li><span style="color: #0000ff;">appearance: 'normal' | 'outline' | 'link';</span>
+                              </li>
+                              <li><span style="color: #0000ff;">color: 'primary' | 'secondary' | 'success' |
+                                          'danger' | 'warning' | 'info' | 'light' | 'dark';</span></li>
+                              <li><span style="color: #0000ff;">text: string;</span></li>
+                              <li><span style="color: #0000ff;">icon: string;</span></li>
+                        </ul>
+                  </ol>
+
+            </mat-tab>
+            <mat-tab label="Example">
+                  <div>
+                        <p></p>
+                        <ul style="list-style-type: circle;">
+                              <li>To demonstrate a button which has a title of "save" in Persian, in addition to a
+                                    tick icon, and shows a message by clicking on it;</li>
+                        </ul>
+                        <ol style="list-style-type: lower-roman;">
+                              <li>Import "OcsButtonModule" in the current module,<br /><br /></li>
+                              <li>Insert &lt;ocs-button&gt;&lt;/ocs-button&gt;<br /><br /></li>
+                              <li>Use this attribute for its title : [text]="stdBag.save" <br /><br /></li>
+                              <li>Inject this code into the constructor's class : 
+                                    <div>@Inject(STANDARD_STRING_BAG) public stdBag: StandardStringBag,<br /><br />
+                                    </div>
+                              </li>
+                              <li>Import related-modules and services from the libraries which are :<br /> import
+                                    "StandardStringBag, STANDARD_STRING_BAG " from 'ocs-ui-core';
+                                    <div>import " Inject " from '@angular/core';</div>
+                                     </li>
+                              <li>Insert its icon which you have found from the Font Awesome package (
+                                    https://fontawesome.com/): icon="fas fa-check"
+
+                              </li>
+                              <li>Set up its color: color="secondary"<br /><br /></li>
+                              <li>Define its method by an event binding that implements a click handler :
+                                    (click)="showMessage()"<br /> </li>
+                              <li>To show the message on the form, inject "UiUtilsService" service into the
+                                    current class; and use of "showSnackBar" method on it.<br /><br /></li>
+                              <li>Remember to Do Not use any text between the tags!<br /><br /></li>
+                              <li>The final tag would be like this : <br /><br /></li>
+                              <li><span style="color: #0000ff;">  &lt;ocs-button [text]="stdBag.save" icon="done" class=" mr-2" color="primary" 
+                                           (click)="showMessage()"&gt;&lt;/ocs-button&gt;<br /><br /></span></li>
+                              <li>
+                                    <div>which looks like this :</div>
+                                    <p></p>
+
+                                    <ocs-button [text]="'save'" icon="fas fa-check" class="ml-5" color="primary"
+                                          (click)="showMessage()">
+                                    </ocs-button>
+                              </li>
+                        </ol>
+                  </div>
+            </mat-tab>
+            <!-- <mat-tab label="Third"> Content 3 </mat-tab> -->
+      </mat-tab-group>
+
+</div>

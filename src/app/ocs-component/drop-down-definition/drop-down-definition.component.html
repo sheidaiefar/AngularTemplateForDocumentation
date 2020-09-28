@@ -1,0 +1,136 @@
+<!-- https://wordhtml.com/  -->
+
+<div class="col-10 justify-content-around m-5">
+      <h3> How to Use of OCS Dropdown's Component</h3>
+      <mat-tab-group class="mt-3">
+            <mat-tab label="Overview">
+                  <p>&nbsp;</p>
+                  <p>Dropdowns are toggleable, contextual overlays for displaying lists of links and more.</p>
+                  <p>The ocs-drop-down component provides useful utilities for this purpose.</p>
+                  <p>A Dropdown Component looks like :</p>
+
+                  <div class="col-3">
+                        <!-- <ocs-drop-down [(ngModel)]="userId" name="user" [label]="'label of Dropdown'" [items]="items" 
+                              itemText="fullName" itemValue="id"></ocs-drop-down> -->
+                        <mat-form-field>
+                              <mat-label>Users</mat-label>
+                              <mat-select>
+                                    <mat-option *ngFor="let us of items" [value]="us.id">
+                                          {{us.fullName}}
+                                    </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+                  </div>
+
+                  <p>&nbsp;</p>
+                  <p>In order to use a <code> ocs-drop-down</code> component, you must perform the following steps:</p>
+                  <ol>
+                        <li>Import the specific dropdown module "OcsDropDownModule" into your current module which has
+                              been imported from the "ocs-ui-core" ibrary. <br /><br /></li>
+                        <li>Insert its specific tag into the current template :
+                              &lt;ocs-drop-down&gt;&lt;/ocs-drop-down&gt;<br /><br /></li>
+                        <li>This tag could have these attributes values:</li>
+                  </ol>
+                  <p> </p>
+                  <ul>
+                        <li>
+                              <p><span style="color: #0000ff;">    required: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p> <span style="color: #0000ff;">    size: InputControlSize; </span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">    alignment: TextAlignment;</span> </p>
+
+                        </li>
+                  </ul>
+                  <ul>
+                        <li>  <span style="color: #0000ff;">   required: boolean;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    hint: string;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    placeholder: string;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    label: string;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    showMessages: boolean;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    readonly: boolean;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    items: any;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    itemValue: string;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    itemText: string;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    itemsPreset: DropDownItemsPreset;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    selectionChange: EventEmitter&lt;any&gt;;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span
+                                    style="color: #0000ff;">    _addons: QueryList&lt;OcsDropDownAddonDirective&gt;;</span>
+                        </li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    _inputBase: OcsInputBaseComponent;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    _host: NgModel;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    _selectedItem: any;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    _value: any;</span></li>
+                  </ul>
+                  <ul>
+                        <li><span style="color: #0000ff;">    _stdBag: StandardStringBag;</span>
+                              <div> </div>
+                        </li>
+                  </ul>
+
+            </mat-tab>
+            <mat-tab label="Example">
+                  <div>
+                        <p>&nbsp;</p>
+                        To use of dropdown component its neededto import "OcsDropDownModule" in the current module which
+                        has been imported from the <p class="font-weight-bold">"ocs-ui-core"</p> library.
+                        <p>To demonstrate a dropdown which toggles between some users(shows fullname of users) and
+                              returns an id as the selected user ; must set these attributes:</p>
+                        <p><span style="color: #0000ff;"><br /> &lt;ocs-drop-down 
+                                    [(ngModel)]="selectedUserId" name="selectedUser" [label]="Users"
+                                    [items]="UsersArray" itemText="fullname"
+                                    itemValue="id"&gt;&lt;/ocs-drop-down&gt;</span></p>
+                        <p> </p>
+                        <ul style="list-style-type: disc;">
+                              <li>
+                                    <p>selectedUserId : is a variable which returns the id of the selected user</p>
+                              </li>
+                              <li>items : represents an array of user model </li>
+                        </ul>
+                        <ul style="list-style-type: disc;">
+                              <li>itemText : refers to the field of fullname in user model and shows in the labels of the
+                                    dropdown</li>
+                        </ul>
+                        <ul style="list-style-type: disc;">
+                              <li>itemValue : refers to the field of id in user model </li>
+                        </ul>
+                        <p> </p>
+
+                  </div>
+            </mat-tab>
+            <!-- <mat-tab label="Third"> Content 3 </mat-tab> -->
+      </mat-tab-group>
+
+</div>

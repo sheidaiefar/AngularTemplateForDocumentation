@@ -1,0 +1,62 @@
+<div class="col-10 justify-content-around m-5">
+      <h3> How to Use of OCS CheckBox Component </h3>
+      <mat-tab-group class="mt-3">
+            <mat-tab label="Overview">
+                  <p>&nbsp;</p>
+
+                  <p>The&nbsp;<code>ocs-check-box</code>&nbsp;allows the user to select one or more items
+                        from a set.</p>
+                  <p>A Basic CheckBox Component,created by ocs component looks like :</p>
+
+                  <div class="col-3">
+                        <ocs-checkbox [label]="'checkbox'"></ocs-checkbox>
+                  </div>
+                  <br/>
+
+                  <p>In order to use the CheckBox component, you must perform the following steps:</p>
+                  <ol>
+                        <ol>
+                              <li>Import the specific CheckBox module "OcsCheckBoxModule" into your current module which
+                                    has been imported from the "ocs-ui-core" ibrary. <br /><br /></li>
+                              <li>Insert its specific tag into the current template : <span
+                                          style="color: #0f750fb9;"> &lt;ocs-checkbox&gt;&lt;/ocs-checkbox&gt;<br /><br /></span>
+                              </li>
+                              <li>This tag could have these attributes values:
+
+                                    <ul>
+                                          <li><span style="color: #0000ff;"> label: String;</span></li>
+                                          <li>
+                                                <span style="color: #0000ff;"> checked: boolean;</span>
+                                          </li>
+                                          <li> <span style="color: #0000ff;"> checkedChange:
+                                                      EventEmitter&lt;boolean&gt;;</span>
+                                          </li>
+                                    </ul>
+                              </li>
+                        </ol>
+                  </ol>
+                  <div>
+                        <p> </p>
+                  </div>
+
+            </mat-tab>
+            <mat-tab label="Example">
+                  <div>
+                        <p>To use of checkbox component its needed to import "OcsCheckBoxModule" in the current module
+                              which has been imported from the "ocs-ui-core" library.</p>
+                        <p>To demonstrate a checkbox which has a label of "be activated" which is a
+                              boolean field of "active" in the model, and related to a specific "id" field in the model;
+                              you must set these attributes for the component:</p>                     
+                        
+                              <textarea readonly rows="2" cols="120">
+                                    <ocs-checkbox [label]="'be activated'" [name]="id" [(ngModel)]="active"></ocs-checkbox>
+                              </textarea>
+                              <p> </p>
+                        <p>the result would be :</p>
+                       
+                        <ocs-checkbox [label]="'be activated'" [name]="id" [(ngModel)]="active"></ocs-checkbox>
+                  </div>
+            </mat-tab>
+      </mat-tab-group>
+
+</div>

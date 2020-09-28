@@ -1,0 +1,107 @@
+<div class="col-10 justify-content-around m-5">
+      <h3> How to Use of OCS AutoComplete Component </h3>
+      <mat-tab-group class="mt-3">
+            <mat-tab label="Overview">
+                  <p>&nbsp;</p>
+
+                  <p>The&nbsp;<code>ocs-auto-complete</code>&nbsp; provides proper ability for working with series of
+                        data and loading related titles as its been searching by user ,it will be very usefull when we
+                        have a huge amount of data.</p>
+
+                  <p>In order to use an autoComplete&nbsp;component, you must perform the following steps:</p>
+                  <ol>
+                        <li>Import the specific Autocomplete module "OcsAutocompleteModule" into your current module
+                              which has been imported from the "ocs-ui-core" ibrary.&nbsp;<br /><br /></li>
+                        <li>Insert its specific tag into the current template :
+                              <span
+                                    style="color: #0f750fb9;">&nbsp;&lt;ocs-autocomplete&gt;&lt;/ocs-autocomplete&gt;</span>
+                        </li><br /><br />
+                        <li>This tag could have these attributes values:</li>
+                  </ol>
+                  <p>&nbsp;</p>
+                  <ul style="list-style-type: circle;">
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; size: InputControlSize;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; alignment: TextAlignment;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; required: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; hint: string;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; placeholder: string;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; label:&nbsp;string;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; showMessages: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; readonly: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; suggestions: number;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; dataProvider: DataProviderFunc&lt;any&gt;;</span>
+                              </p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; showValidationIcon: boolean;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; itemValue: string;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; itemText: string;</span></p>
+                        </li>
+                        <li>
+                              <p><span style="color: #0000ff;">&nbsp; optionSelect: EventEmitter&lt;any&gt;;</span></p>
+                        </li>
+                  </ul>
+                  <div>
+                        <p>&nbsp;</p>
+                  </div>
+
+            </mat-tab>
+            <mat-tab label="Example">
+                  <div>
+                        <p>In order to use of autoComplete component at first, you must import
+                              "OcsAutocompleteModule" in the current module; for example, the module of your form.</p>
+                        <p> </p>
+                        <p>the following example shows an autocomplete which toggles among some organizations, in this
+                              example, we want to show organizationTitle and return the id of the selected
+                              organization; also this field is required in the form's fulfillment.</p>
+                        <p> </p>
+                        <p>must set these attributes like:</p>
+
+                        <textarea readonly rows="4"
+                              cols="100"> <ocs-autocomplete name="organizationsList" [dataProvider]="organizationsDataProvider" itemText="organizationTitle" itemValue="id" [label]="organization" [(ngModel)]="model.organizationId" [required]="true"></ocs-autocomplete></textarea>
+
+                        <ul style="list-style-type: disc;">
+                              <li>itemText : refers to the field of organizationTitle to show for users.</li>
+                        </ul>
+                        <p> </p>
+                        <ul style="list-style-type: disc;">
+                              <li>itemValue : refers to the field of id in organization model</li>
+                        </ul>
+                        <p> </p>
+                        <ul style="list-style-type: disc;">
+                              <li>dataProvider: the type of this attribute is ( DataProviderFunc) which invokes server
+                                    for some observable dataSourceResults base on the data model.<br /> for example, in
+                                    this case, you can write a function in the component's class like below :
+                                    <br /><br />
+                              </li>
+                        </ul>
+                        <textarea readonly rows="4"
+                              cols="80">this.organizationsDataProvider = this.createOrganizationDataProvider(); createOrganizationDataProvider(): DataProviderFunc<OrganizationModel[]> { return (request: DataSourceRequest) => { return this.service.getOrganizations(request); }; }</textarea>
+                  </div>
+            </mat-tab>
+      </mat-tab-group>
+
+</div>
